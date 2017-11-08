@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-
+<%include ./partial/header%>
 <form action="/teknisi/add" method="post">
   Name:<br>
   <input type="text" name="name" value="">
@@ -17,6 +17,7 @@
   <br>
   <br>
   <input type="submit" value="Add">
+  <%=msg%>
 </form> 
 
 

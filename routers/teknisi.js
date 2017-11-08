@@ -13,7 +13,7 @@ router.get('/',(req,res)=>{
 
 
 router.get('/add',(req,res)=>{
-    res.render('addTeknisi')
+    res.render('addTeknisi',{msg:""})
 })
 
 
@@ -32,8 +32,9 @@ router.post('/add',(req,res)=>{
         // console.log(newStudent)
         res.redirect('/teknisi');
     }).catch((err)=>{
-        // res.send(err.errors[0].message)
-        res.render('addTeknisi',{error:err});
+        let errorMsg = err.errors[0].message
+        //   res.send(errorMsg)
+          res.render('addTeknisi',{msg:errorMsg})
     });
 });
 
