@@ -1,4 +1,6 @@
 'use strict';
+const bcrypt = require('bcrypt');
+
 module.exports = (sequelize, DataTypes) => {
   var Admin = sequelize.define('Admin', {
     name: DataTypes.STRING,
@@ -12,6 +14,13 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
+  // Admin.beforeCreate((admin, options) => {
+  //   const saltRounds = 10;
+  //   const myPlaintextPassword = admin.password;
+  //   return  bcrypt.hash(myPlaintextPassword, saltRounds).then(function(hash) {
+  //     user.password = hash
+  //   });
+  // });
   //    Pasien.belongsToMany(model.Dokter, {through: 'Periksa'})
     // Pasien.belongsToMany(model.Diagnosis, {through: 'Periksa'})
   Admin.associate = function(models) {

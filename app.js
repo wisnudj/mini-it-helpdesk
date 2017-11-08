@@ -8,6 +8,7 @@ const employeetiket = require('./routers/employeetiket')
 const teknisitiket = require('./routers/teknisitiket')
 const admintiket = require('./routers/admintiket');
 const teknisi = require('./routers/teknisi') //resolve idabagusangga
+const register = require('./routers/register')
 const session = require('express-session')
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -20,7 +21,7 @@ app.set('view engine', 'ejs') // register the template engine
 
 
 
-
+app.use('/register',register)
 app.use('/teknisi',teknisi) //resolve conflict idabagusangga
 app.use('/employee', employee)
 app.use('/tiket', tiket)

@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
+  
 
   Tiket.associate = function(models) {
     Tiket.belongsTo(models.Employee)

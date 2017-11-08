@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action="/register" method="post">
+        Name:<br>
+        <input type="text" name="name" placeholder="Enter your name">
+        <br>
+        Username:<br>
+        <input type="text" name="username" placeholder="Enter your username">
+        <br>
+        Password:<br>
+        <input type="password" name="password" placeholder="Enter your password">
+        <br>
+        Re-enter Your Password:<br>
+        <input type="password" name="reTypePassword">
+        <br>
+        Email:<br>
+        <input type="text" name="email" placeholder="Enter your email">
+        <br>
+        <p><%=msgUser%></p>
+        <br>
+        <input type="submit" value="Register">
+      </form> 
+  </body>
+</html>
