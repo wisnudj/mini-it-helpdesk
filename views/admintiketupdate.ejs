@@ -8,6 +8,7 @@
     <form class="" action="/admintiket/updatetiket/<%=tiket.id%>" method="post">
       <p>Tugaskan teknisi:</p>
       <select class="" name="TeknisiId">
+        <option value="0">Pilih teknisi</option>
         <%for(var i= 0; i < teknisi.length; i++){%>
         <option value="<%=teknisi[i].id%>"><%=teknisi[i].name%></option>
         <%}%>
@@ -15,6 +16,7 @@
       <p>Feedback dari admin jika reject</p>
       <p><textarea name="Feedback" rows="8" cols="80"></textarea></p>
       <select class="" name="Status">
+        <option value="">Pilih status</option>
         <option value="reject">reject</option>
         <option value="assigned">assigned</option>
       </select>

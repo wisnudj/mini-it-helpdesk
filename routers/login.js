@@ -9,11 +9,12 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   if(req.body.pilihan == 'employee') {
     models.Employee.findOne({where: {username: req.body.username}}).then((hasil) => {
+      console.log(hasil.username);
       req.session.loggedIn = true
       req.session.username = hasil.username
       req.session.nomor = hasil.id
       req.session.nama = hasil.name
-      console.log(req.session.nama)
+      req.session.peran = 'employee'
       res.redirect('/employeetiket')
     }).catch((err) => {
       res.redirect('/login')
@@ -25,7 +26,7 @@ router.post('/', (req, res) => {
       req.session.username = hasil.username
       req.session.nama = hasil.name
       req.session.nomor = hasil.id
-      console.log(hasil);
+      req.session.peran = 'teknisi'
       res.redirect('/teknisitiket')
     }).catch((err) => {
       res.redirect('/login')
@@ -37,7 +38,7 @@ router.post('/', (req, res) => {
       req.session.username = hasil.username
       req.session.nama = hasil.name
       req.session.nomor = hasil.id
-      console.log(hasil);
+      req.session.peran = 'admin'
       res.redirect('/admintiket')
     }).catch(() => {
       res.redirect('/login')
