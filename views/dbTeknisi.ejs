@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            
+        </title>
+
+    </head>
+    <body>
+
+        <table>
+            <thead><a href="/teknisi/add/">Add Teknisi</thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Username</th>
+              <th>Email</th>
+              
+            </tr>
+        </thead>
+            <tbody>
+              
+            <tr>
+                <%dataTeknisi.forEach(function(teknisi){%>
+
+              <td><%=teknisi.id%></td>
+              <td><%=teknisi.name%></td>
+              <td><%=teknisi.username%></td>
+              <td><%=teknisi.email%></td>
+              
+              <td><a href="/teknisi/edit/<%=teknisi.id%>">Edit</td>
+                <!-- if(admin -->
+              <td><a href="/teknisi/delete/<%=teknisi.id%>">delete</td>
+                <!-- if(admin -->
+              <td><a href="/teknisi/tickets/<%=teknisi.id%>">Tickets Assigned</td>
+              
+            </tr>
+            <%})%>
+        </tbody>
+        
+
+           
+          <br>  
+    </body>
+</html>
