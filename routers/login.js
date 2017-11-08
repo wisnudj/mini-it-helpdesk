@@ -18,6 +18,7 @@ router.post('/', (req, res) => {
           req.session.username = hasil.username
           req.session.nomor = hasil.id
           req.session.nama = hasil.name
+          req.session.peran = req.body.pilihan
           // console.log(req.session.logged)
           res.redirect('/employeetiket')
         }
@@ -26,11 +27,11 @@ router.post('/', (req, res) => {
         }
         
     })
-
     }).catch((err) => {
       res.render('login',{msg:"Username tidak terdaftar"})
     })
   }
+  
   else if(req.body.pilihan == 'teknisi') {
     models.Teknisi.findOne({where: {username: req.body.username}}).then((hasil) => {
       console.log(hasil)
@@ -40,6 +41,7 @@ router.post('/', (req, res) => {
           req.session.username = hasil.username
           req.session.nomor = hasil.id
           req.session.nama = hasil.name
+          req.session.peran = req.body.pilihan
           // console.log(req.session.logged)
           res.redirect('/teknisitiket')
         }
@@ -60,6 +62,7 @@ router.post('/', (req, res) => {
           req.session.username = hasil.username
           req.session.nomor = hasil.id
           req.session.nama = hasil.name
+          req.session.peran = req.body.pilihan
           // console.log(req.session.logged)
           res.redirect('/admintiket')
 
