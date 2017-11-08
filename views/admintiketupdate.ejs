@@ -5,9 +5,11 @@
     <title></title>
   </head>
   <body>
+      <%include ./partial/header%>
     <form class="" action="/admintiket/updatetiket/<%=tiket.id%>" method="post">
       <p>Tugaskan teknisi:</p>
       <select class="" name="TeknisiId">
+        <option value="0">Pilih Teknisi</option>
         <%for(var i= 0; i < teknisi.length; i++){%>
         <option value="<%=teknisi[i].id%>"><%=teknisi[i].name%></option>
         <%}%>
