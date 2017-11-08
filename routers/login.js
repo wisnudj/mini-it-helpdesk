@@ -18,6 +18,7 @@ router.post('/', (req, res) => {
           req.session.username = hasil.username
           req.session.nomor = hasil.id
           req.session.nama = hasil.name
+          req.session.peran = req.body.pilihan
           // console.log(req.session.logged)
           res.redirect('/employeetiket')
         }
@@ -26,7 +27,7 @@ router.post('/', (req, res) => {
         }
         
     })
-    }).catch((err) => {
+    }).catch((err) => { //WISNU WISNU WISNU@WISNU
       res.render('login',{msg:"Username tidak terdaftar"})
     })
   }
@@ -39,6 +40,7 @@ router.post('/', (req, res) => {
           req.session.username = hasil.username
           req.session.nomor = hasil.id
           req.session.nama = hasil.name
+          req.session.peran = req.body.pilihan
           // console.log(req.session.logged)
           res.redirect('/teknisitiket')
         }
@@ -58,6 +60,7 @@ router.post('/', (req, res) => {
           req.session.username = hasil.username
           req.session.nomor = hasil.id
           req.session.nama = hasil.name
+          req.session.peran = req.body.pilihan
           // console.log(req.session.logged)
           res.redirect('/admintiket')
        
