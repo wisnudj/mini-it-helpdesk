@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   if(req.body.pilihan == 'employee') {
     models.Employee.findOne({where: {username: req.body.username}}).then((hasil) => {
-      console.log(hasil)
       bcrypt.compare(req.body.password, hasil.password).then(function(result) {
         if(result){
           req.session.loggedIn = true
@@ -19,13 +18,14 @@ router.post('/', (req, res) => {
           req.session.nomor = hasil.id
           req.session.nama = hasil.name
           req.session.peran = req.body.pilihan
+
           // console.log(req.session.logged)
           res.redirect('/employeetiket')
         }
         else{
           res.render('login',{msg:"Password anda salah"})
         }
-        
+
     })
     }).catch((err) => {
       res.render('login',{msg:"Username tidak terdaftar"})
@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
         else{
           res.render('login',{msg:"Password anda salah"})
         }
-        
+
     })
 
     }).catch((err) => {
