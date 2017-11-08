@@ -12,5 +12,13 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
+  //    Pasien.belongsToMany(model.Dokter, {through: 'Periksa'})
+    // Pasien.belongsToMany(model.Diagnosis, {through: 'Periksa'})
+  Admin.associate = function(models) {
+    Admin.belongsToMany(models.Employee, {through: 'Tiket'})
+    Admin.belongsToMany(models.Teknisi, {through: 'Tiket'})
+    Admin.hasMany(models.Tiket)
+  }
+
   return Admin;
 };
