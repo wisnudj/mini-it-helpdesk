@@ -13,12 +13,12 @@ module.exports = {
       }], {});
     */
     return queryInterface.bulkInsert('Admins', [{
-      name: 'ipul aja',
-      username: 'ipulaja',
-      password: '4444',
+      name: 'bruce lee',
+      username: 'bruce',
+      password: 'lee',
       createdAt: new Date(),
       updatedAt: new Date(),
-      email: 'angga.idabagus@gmail.com'
+      email: 'jayalahwisnu@gmail.com'
     }], {})
   },
 

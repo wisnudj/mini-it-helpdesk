@@ -13,9 +13,9 @@ module.exports = {
       }], {});
     */
     return queryInterface.bulkInsert('Employees', [{
-      name: 'wisnu Agung',
-      username: 'wisnudj',
-      password: '313',
+      name: 'jackie chan',
+      username: 'jackie',
+      password: 'jackie',
       createdAt: new Date(),
       updatedAt: new Date(),
       email: 'jayalahwisnu@gmail.com'

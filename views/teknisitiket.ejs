@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>id tiket</th>
+        <th>Nama Employee</th>
+        <th>Nama Teknisi</th>
+        <th>Problem</th>
+        <th>Feedback</th>
+        <th>Status</th>
+      </tr>
+      <%for(var i = 0; i < tiket.length; i++){%>
+        <tr>
+          <td><%=tiket[i].id%></td>
+          <%if(tiket[i].Employee){%>
+          <td><%=tiket[i].Employee.name%></td>
+          <%} else {%>
+          <td></td>
+          <%}%>
+          <%if(tiket[i].Teknisi){%>
+          <td><%=tiket[i].Teknisi.name%></td>
+          <%} else {%>
+          <td>unassigned</td>
+          <%}%>
+          <td><%=tiket[i].Problem%></td>
+          <td><%=tiket[i].Feedback%></td>
+          <td><%=tiket[i].Status%></td>
+          <td><a href="/teknisitiket/updatetiket/<%=tiket[i].id%>">Update Tiket</a></td>
+        </tr>
+      <%}%>
+    </table>
+  </body>
+</html>
