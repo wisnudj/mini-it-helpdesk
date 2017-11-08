@@ -26,6 +26,7 @@ router.post('/', (req, res) => {
         }
         
     })
+
     }).catch((err) => {
       res.render('login',{msg:"Username tidak terdaftar"})
     })
@@ -47,6 +48,7 @@ router.post('/', (req, res) => {
         }
         
     })
+
     }).catch((err) => {
       res.redirect('/login')
     })
@@ -60,8 +62,6 @@ router.post('/', (req, res) => {
           req.session.nama = hasil.name
           // console.log(req.session.logged)
           res.redirect('/admintiket')
-       
-        
 
     }).catch(() => {
       res.redirect('/login')
