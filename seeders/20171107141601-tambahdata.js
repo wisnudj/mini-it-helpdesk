@@ -12,14 +12,16 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('Teknisis', [{
-      name: 'Ario Bayu',
-      username: 'ario',
-      password: 'ario',
+    return queryInterface.bulkInsert('Tikets', [{
+      EmployeeId: 5,
+      TeknisiId: 4,
+      AdminId: 4,
+      Problem: 'komputer terbakar',
+      Feedback: 'disiram',
+      Status: 'solved',
       createdAt: new Date(),
-      updatedAt: new Date(),
-      email: 'jayalahwisnu@gmail.com'
-    }], {})
+      updatedAt: new Date()
+    }])
   },
 
   down: (queryInterface, Sequelize) => {
