@@ -27,10 +27,11 @@ router.post('/', (req, res) => {
         }
         
     })
-    }).catch((err) => { //WISNU WISNU WISNU@WISNU
+    }).catch((err) => {
       res.render('login',{msg:"Username tidak terdaftar"})
     })
   }
+  
   else if(req.body.pilihan == 'teknisi') {
     models.Teknisi.findOne({where: {username: req.body.username}}).then((hasil) => {
       console.log(hasil)
@@ -49,6 +50,7 @@ router.post('/', (req, res) => {
         }
         
     })
+
     }).catch((err) => {
       res.redirect('/login')
     })
@@ -63,8 +65,6 @@ router.post('/', (req, res) => {
           req.session.peran = req.body.pilihan
           // console.log(req.session.logged)
           res.redirect('/admintiket')
-       
-        
 
     }).catch(() => {
       res.redirect('/login')
