@@ -52,7 +52,7 @@ router.post('/', (req, res) => {
     })
   }
   else if(req.body.pilihan == 'admin') {
-    models.Admin.findOne({where: {username: req.body.username}}).then((hasil) => {
+    models.Admin.findOne({where: {username: req.body.username}}).then((hasil) => { //JANGAN LUPA KASIH VALIDASI ABIS HEROKU
 
           req.session.loggedIn = true
           req.session.username = hasil.username
