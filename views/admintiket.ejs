@@ -20,10 +20,7 @@
         <th>Status</th>
       </tr>
       <%for(var i = 0; i < tiket.length; i++){%>
-        <%var status = ""%>
-        <%if(tiket[i].Status == 'rejected'){%>
-          <%status = "danger"%>
-          <tr class ='<%= status %>'>
+          <tr>
               <td><%=tiket[i].id%></td>
               <%if(tiket[i].Employee){%>
               <td><%=tiket[i].Employee.name%></td>
@@ -41,9 +38,7 @@
               <td><a href="/admintiket/updatetiket/<%=tiket[i].id%>">Update Tiket</a></td>
             </tr>
         <%}%>
-
-      <%}%>
     </table>
-    <p><a href="/logout">Logout</a></p>
+    <p><a href="/teknisi/add">add teknisi</a></p>
   </body>
 </html>

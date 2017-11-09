@@ -111,6 +111,36 @@ router.post('/updatetiket/:id',checkLogin, (req, res) => {
         })
 
       }
+      // res.send(tiket)
+      // var transporter = nodemailer.createTransport({
+      //   service: 'gmail',
+      //   auth: {
+      //     user: 'itbantuan007@gmail.com',
+      //     pass: 'ithelpdesk'
+      //   }
+      // })
+      //
+      //   var mailOptions = {
+      //     from: 'itbantuan007@gmail.com',
+      //     to: `${tiket[0].Teknisi.email}`,
+      //     subject: 'response IT Bantuan 007',
+      //     html: `
+      //     <h1>Email From IT Bantuan 007</h1>
+      //     <p>Admin menugaskan kepada:</h1>
+      //     <p>${tiket[0].Teknisi.name}</p>
+      //     <p>Employee name:</p>
+      //     <p>Problem:</p>
+      //     <p>${tiket[0].Problem}</p>
+      //     `
+      //   }
+      //
+      //     transporter.sendMail(mailOptions, function(error, info){
+      //       if (error) {
+      //         console.log(error);
+      //       } else {
+      //         console.log('Email sent: ' + info.response);
+      //       }
+      //     })
 
       res.redirect('/admintiket')
     })

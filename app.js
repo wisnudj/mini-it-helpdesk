@@ -10,7 +10,8 @@ const admintiket = require('./routers/admintiket');
 const teknisi = require('./routers/teknisi') //resolve idabagusangga
 const register = require('./routers/register')
 const session = require('express-session')
-const logout = require('./routers/logout');
+const logout = require('./routers/logout')
+const admin = require('./routers/admin');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(session({
@@ -31,6 +32,7 @@ app.use('/employeetiket', employeetiket)
 app.use('/teknisitiket', teknisitiket)
 app.use('/admintiket', admintiket)
 app.use('/logout', logout)
+app.use('/admin', admin)
 
 
 app.listen(3000, function () {

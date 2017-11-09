@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
       res.render('login',{msg:"Username tidak terdaftar"})
     })
   }
-  
+
   else if(req.body.pilihan == 'teknisi') {
     models.Teknisi.findOne({where: {username: req.body.username}}).then((hasil) => {
       console.log(hasil)
@@ -57,7 +57,8 @@ router.post('/', (req, res) => {
   }
   else if(req.body.pilihan == 'admin') {
     models.Admin.findOne({where: {username: req.body.username}}).then((hasil) => { //JANGAN LUPA KASIH VALIDASI ABIS HEROKU
-
+      bcrypt.compare(req.body.password, hasil.password).then(function(result) {
+        if(result){
           req.session.loggedIn = true
           req.session.username = hasil.username
           req.session.nomor = hasil.id
@@ -65,11 +66,17 @@ router.post('/', (req, res) => {
           req.session.peran = req.body.pilihan
           // console.log(req.session.logged)
           res.redirect('/admintiket')
+        }
+        else{
+          res.render('login',{msg:"Password anda salah"})
+        }
 
-    }).catch(() => {
+    })
+
+    }).catch((err) => {
       res.redirect('/login')
     })
-  }
-})
+    }
+  })
 
 module.exports = router;

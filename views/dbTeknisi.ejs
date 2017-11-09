@@ -21,11 +21,11 @@
               <th></th>
               <th></th>
               <th>Tickets</th>
-              
+
             </tr>
         </thead>
             <tbody>
-              
+
             <tr>
                 <%dataTeknisi.forEach(function(teknisi){%>
 
@@ -33,22 +33,22 @@
               <td><%=teknisi.name%></td>
               <td><%=teknisi.username%></td>
               <td><%=teknisi.email%></td>
-              
+
               <td><a href="/teknisi/edit/<%=teknisi.id%>">Edit</td>
                 <!-- if(admin -->
               <td><a href="/teknisi/delete/<%=teknisi.id%>">delete</td>
                 <!-- if(admin -->
               <td><a href="/teknisi/tickets/<%=teknisi.id%>">Tickets Assigned</td>
-              
+
             </tr>
             <%})%>
         </tbody>
         </table>
     </div>
-    
+
     <div>
-            <button type="button" class="btn btn-primary active" a href="teknisi/add">Add Teknisi</a></button> 
+            <button type="button" class="btn btn-primary active" a href="teknisi/add">Add Teknisi</a></button>
     </div>
-         
+
     </body>
 </html>

@@ -2,22 +2,28 @@ const express = require('express');
 const router = express.Router();
 const Model = require('../models');
 
-//tampilin halaman database (khusus untuk admin)
+function checkLogin(req, res, next){
+  if (req.session.loggedIn && req.session.peran == 'admin') {
+    next()
+  }else{
+    res.redirect('/login')
+  }
+}
 
-//if(admin)
-router.get('/',(req,res)=>{
+
+router.get('/',checkLogin, (req,res)=>{
     Model.Teknisi.findAll().then(dataTeknisi=>{
         res.render('dbTeknisi',{dataTeknisi:dataTeknisi})
     })
 })
 
 
-router.get('/add',(req,res)=>{
+router.get('/add', checkLogin, (req,res)=>{
     res.render('addTeknisi',{msg:""})
 })
 
 
-router.post('/add',(req,res)=>{
+router.post('/add', checkLogin,(req,res)=>{
     let name = req.body.name;
     let username = req.body.username;
     let password = req.body.password;
@@ -38,7 +44,7 @@ router.post('/add',(req,res)=>{
     });
 });
 
-router.get('/delete/:id',(req,res)=>{
+router.get('/delete/:id',checkLogin, (req,res)=>{
     Model.Teknisi.destroy({
         where:{
             id:req.params.id
@@ -55,7 +61,7 @@ router.get('/edit/:id',(req,res)=>{
     });
 });
 
-router.post('/edit/:id',(req,res)=>{
+router.post('/edit/:id',checkLogin, (req,res)=>{
     let name = req.body.name;
     let username = req.body.username;
     let password = req.body.password;
