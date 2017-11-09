@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            
-        </title>
-
-    </head>
+        <head>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                <title></title>
+              </head>
     <body>
+        <div>
             <%include ./partial/header%>
-        <table>
+        <table class="table table-striped" align="center">
             <thead><a href="/teknisi/add/">Add Teknisi</thead>
             <tr>
               <th>ID</th>
               <th>Name</th>
               <th>Username</th>
               <th>Email</th>
+              <th></th>
+              <th></th>
+              <th>Tickets</th>
               
             </tr>
         </thead>
@@ -37,9 +43,12 @@
             </tr>
             <%})%>
         </tbody>
-        
-
-           
-          <br>  
+        </table>
+    </div>
+    
+    <div>
+            <button type="button" class="btn btn-primary active" a href="teknisi/add">Add Teknisi</a></button> 
+    </div>
+         
     </body>
 </html>
